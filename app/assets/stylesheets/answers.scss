@@ -1,0 +1,12 @@
+// Place all the styles related to the answers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bg-color {
+	background-color: rgba(237,249,226,0.4);
+}
+
+.bg-color.ck,
+.bg-color:hover {
+	background-color: rgba(93,250,61,0.6);
+}

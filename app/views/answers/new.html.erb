@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-6 bg-light">
+      <h4 class="my-3">こちらは増田歯科のWEB問診ページです</h4>
+     
+
+      <%= form_with model:@answer, local:true do |f| %>
+        <div class="question">
+          Q1.BUMP OF CHICKENで一番好きな曲はなんですか？
+        </div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q1"><label><%= f.radio_button :a1, 1, name:"a1" %>記念撮影</label></div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q1"><label><%= f.radio_button :a1, 2, name:"a1" %>ひとりごと</label></div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q1"><label><%= f.radio_button :a1, 3, name:"a1" %>beautiful glider</label></div>
+
+      
+        <div class="question">
+          Q2.ガッキー好きですか？
+        </div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q2"><label><%= f.radio_button :a2, 1, name:"a2" %>大好き</label></div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q2"><label><%= f.radio_button :a2, 2, name:"a2" %>普通</label></div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q2"><label><%= f.radio_button :a2, 3, name:"a2" %>そうでもない</label></div>
+          
+        <div class="question">
+          Q3.昨日の晩ご飯
+        </div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q3"><label><%= f.radio_button :a3, 1, name:"a3" %>和食</label></div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q3"><label><%= f.radio_button :a3, 2, name:"a3" %>洋食</label></div>
+          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q3"><label><%= f.radio_button :a3, 3, name:"a3" %>中華</label></div>
+        <div class="btn submit">
+          <%= f.submit '送信' %>
+        </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

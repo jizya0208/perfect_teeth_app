@@ -5,11 +5,12 @@ class Admin::AnswersController < ApplicationController
   
   private
   def if_not_admin
-    redirect_to root_path current_user.admin?
+    redirect_to root_path unless current_user.admin?
   end
   
   def set_answers
-    @answers = Answer.all
-    @answer = Answer.find(params[:id])
+    # @answers = Answer.all   N+1を防ぐためincludesで記述
+    @answers = Answer.includes(:user)
+    @answer = Answer.where(user_id: params[:id])
   end
 end

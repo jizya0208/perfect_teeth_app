@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  resources :answers, only: [:new, :create, :show]
+  resources :users, only: [] do   
+    resources :answers, only: [:new, :create, :show]
     namespace :admin do
-      resources :answers, only: [:index, :show, :edit, :update, :destroy]
-      resources :users, only: [:index, :show]
+      resources :answers, only: [:show, :edit, :update, :destroy]
+      resources :users, only: [:show]
     end
+  end
+  
+  resources :answers
+  namespace :admin do
+    resources :answers, only: [:index]
+    resources :users, only: [:index]
+  end
+  
   devise_for :users
   
   # ログインページをルートパスにする

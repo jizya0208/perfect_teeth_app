@@ -7,9 +7,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   
-  # ログイン後遷移ページを新規回答画面としてオーバーライド。
+  # ログイン後遷移ページをオーバーライド。管理者なら回答一覧、一般ユーザーなら新規回答画面へ遷移。
   def after_sign_in_path_for(resource)
-    new_answer_path
+    if current_user.admin?
+      admin_answers_path
+    else
+      new_user_answer_path(user_id: current_user.id)
+    end
   end
   
   

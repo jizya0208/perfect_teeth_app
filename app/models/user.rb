@@ -13,4 +13,10 @@ class User < ApplicationRecord
   def email_changed?
     false
   end
+  
+  # エラー解除のため
+  def will_save_change_to_email?
+    false
+  end
+  
 end

@@ -1,4 +1,27 @@
+// 繰り返し文で書けないかな？
+// $(function() {
+// 		for (let i = 1; i < 8; i++){
+// 		$('input[name= a${i}]').on('change', function() {
+// 		var $check = $(this).parents('.q${i}');
+// 		$('.q${i').removeClass('ck');
+// 		if ($(this).prop('checked')) {
+// 			$check.addClass('ck');
+// 			}
+// 		});
+// 		}
+// 	});
+
+	
+	// ==========================================================================
+// $('td:contains("gud")').parent("tr").css("background-color", "#FFDBC9");
+// $('td:contains("!!")').parent("tr").css("background-color", "#F4FF22");
+
 $(function() {
+	$(document).on('turbolinks:load', function() {
+	$('td:contains("gud")').parent("tr").addClass("gud");
+	$('td:contains("!!")').parent("tr").addClass("bad");
+	});
+	
 	$('input[name="a1"]').on('change', function() {
 		var $check = $(this).parents('.q1');
 		$('.q1').removeClass('ck');
@@ -22,4 +45,37 @@ $(function() {
 			$check.addClass('ck');
 		}
 	});	
+	
+	$('input[name="a4"]').on('change', function() {
+		var $check = $(this).parents('.q4');
+		$('.q4').removeClass('ck');
+		if ($(this).prop('checked')) {
+			$check.addClass('ck');
+		}
+	});	
+	
+	$('input[name="a5"]').on('change', function() {
+		var $check = $(this).parents('.q5');
+		$('.q5').removeClass('ck');
+		if ($(this).prop('checked')) {
+			$check.addClass('ck');
+		}
+	});	
+
+	$('input[name="a6"]').on('change', function() {
+		var $check = $(this).parents('.q6');
+		$('.q6').removeClass('ck');
+		if ($(this).prop('checked')) {
+			$check.addClass('ck');
+		}
+	});	
+	
+	$('input[name="a7"]').on('change', function() {
+		var $check = $(this).parents('.q7');
+		$('.q7').removeClass('ck');
+		if ($(this).prop('checked')) {
+			$check.addClass('ck');
+		}
+	});	
+	
 } );

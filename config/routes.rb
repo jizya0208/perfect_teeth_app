@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :answers
+  resources :answers, only: [:index]
   namespace :admin do
     resources :answers, only: [:index]
     resources :users, only: [:index]

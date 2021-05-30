@@ -2,11 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header, nav, h4, .main-visual, footer {
+  font-family:  'arial narrow', 'Sawarabi Mincho', "Segoe Print", sans-serif;
+}
+
+h5, .question .target {
+	color: #003864;
+}
+
+.question {
+	padding-top: 15px;
+}
+
+#title {
+	font-size: 28px;
+   color: #ffffff;
+}
+
+.navbar {
+	background: #cbbda8;
+}
+
 .bg-color {
-	background-color: rgba(237,249,226,0.4);
+	background-color: rgba(255,255,179,0.1);
 }
 
 .bg-color.ck,
 .bg-color:hover {
-	background-color: rgba(93,250,61,0.6);
+	background-color: rgba(248,235,95,0.8);
 }
+
+.gud {
+	background-color: rgba(106,204,157,0.3);
+}
+
+.bad {
+  background-color: rgba(255,75,39,0.3);
+}
+
+.rm_number:first-letter {
+  visibility:hidden;
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+// @media screen and (max-width:425px) {
+//   .target {
+  
+//     display: block;
+//     text-align: left;
+//   }
+// }

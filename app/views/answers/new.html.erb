@@ -1,33 +1,73 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6 bg-light">
-      <h4 class="my-3">こちらは増田歯科のWEB問診ページです</h4>
-     
+    <div class="col-sm-10 col-md-8 col-lg-7 offset-md-1 bg-light">
+      <h5 class="my-4">こちらは増田歯科のWEB問診ページです</h5>
+      
+      <% if @answer.errors.any? %>
+        <div class="alert alert-warning">
+          <%= @answer.errors.count %>件エラーの発生しました
+          <ul>
+          <% @answer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
       <%= form_with(model:[@user, @answer], local: true) do |f| %>
         <div class="question">
-          Q1.BUMP OF CHICKENで一番好きな曲はなんですか？
+          Q1.BUMP OF CHICKENで一番好きな曲は？
         </div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q1"><label><%= f.radio_button :a1, "記念撮影", name:"a1" %>記念撮影</label></div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q1"><label><%= f.radio_button :a1, "ひとりごと", name:"a1" %>ひとりごと</label></div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q1"><label><%= f.radio_button :a1, "beautifulglider", name:"a1" %>beautiful glider</label></div>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q1"><%= f.radio_button :a1, "1 記念撮影", name:"a1" %>記念撮影</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q1"><%= f.radio_button :a1, "2 ひとりごと", name:"a1" %>ひとりごと</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-2 bg-color q1"><%= f.radio_button :a1, "3 beautifulglider", name:"a1" %>beautiful glider</label>
 
-      
         <div class="question">
-          Q2.ガッキー好きですか？
+          Q2.口内炎ができる
         </div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q2"><label><%= f.radio_button :a2, "大好き", name:"a2" %>大好き</label></div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q2"><label><%= f.radio_button :a2, "普通", name:"a2" %>普通</label></div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q2"><label><%= f.radio_button :a2, "そうでもない", name:"a2" %>そうでもない</label></div>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q2"><%= f.radio_button :a2, "1 はい", name:"a2" %>はい</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q2"><%= f.radio_button :a2, "2 時々", name:"a2" %>時々</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q2"><%= f.radio_button :a2, "3 いいえ", name:"a2" %>いいえ</label>
           
         <div class="question">
-          Q3.昨日の晩ご飯
+          Q3.下痢をしやすい
         </div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q3"><label><%= f.radio_button :a3, "和食", name:"a3" %>和食</label></div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q3"><label><%= f.radio_button :a3, "洋食", name:"a3" %>洋食</label></div>
-          <div class="target col-md-5 col-sm-3 border border-success rounded-pill m-2 bg-color q3"><label><%= f.radio_button :a3, "中華", name:"a3" %>中華</label></div>
-        <div class="btn submit btn-lg btn-block btn-info mt-4">
-          <%= f.submit '送信' %>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q3"><%= f.radio_button :a3, "1 はい", name:"a3" %>はい</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q3"><%= f.radio_button :a3, "2 時々", name:"a3" %>時々</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q3"><%= f.radio_button :a3, "3 いいえ", name:"a3" %>いいえ</label>
+        
+        <div class="question">
+          Q4.歯磨きの際に歯茎から血が出る
+        </div>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q4"><%= f.radio_button :a4, "1 はい", name:"a4" %>はい</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q4"><%= f.radio_button :a4, "2 時々", name:"a4" %>時々</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q4"><%= f.radio_button :a4, "3 いいえ", name:"a4" %>いいえ</label>
+          
+        <div class="question">
+          Q5.毎日の気分は？
+        </div>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q5"><%= f.radio_button :a5, "1 あまり優れない", name:"a5" %>優れない</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q5"><%= f.radio_button :a5, "3 あまり優れない", name:"a5" %>あまり優れない</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q5"><%= f.radio_button :a5, "3 平凡", name:"a5" %>平凡</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q5"><%= f.radio_button :a5, "4 ほぼ充実", name:"a5" %>ほぼ充実</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q5"><%= f.radio_button :a5, "5 充実", name:"a5" %>充実</label>
+
+        <div class="question">
+          Q6.食べ物が喉や胃にもたれる
+        </div>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q6"><%= f.radio_button :a6, "1 はい", name:"a6" %>はい</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q6"><%= f.radio_button :a6, "2 時々", name:"a6" %>時々</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q6"><%= f.radio_button :a6, "3 いいえ", name:"a6" %>いいえ</label>
+          
+        <div class="question">
+          Q7.尿の回数が増えた
+        </div>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q7"><%= f.radio_button :a7, "1 はい", name:"a7" %>はい</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q7"><%= f.radio_button :a7, "2 少し", name:"a7" %>少し</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q7"><%= f.radio_button :a7, "3 いいえ", name:"a7" %>いいえ</label>
+        
+        <div class="form-group">
+          <%= f.submit '送信', class:"form-control btn submit btn-lg btn-block btn-info mt-4" %>
         </div>
       <% end %>
 

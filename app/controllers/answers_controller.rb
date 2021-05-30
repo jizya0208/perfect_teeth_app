@@ -10,8 +10,9 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
     if @answer.save
       redirect_to user_answer_path(@answer.user_id, @answer), notice: "回答が保存されました"
-    # else
-    # 　render "/answers/new"
+    else
+      @user = User.find_by(id: params[:id])
+    render 'answers/new', user_id: params[:id]
     end
   end
   
@@ -21,7 +22,7 @@ class AnswersController < ApplicationController
   
   private
   def answer_params
-    params.permit(:user_id, :sub_id, :a1, :a2, :a3)
-    # , :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14, :a15, :a16, :a17, :a18, :a19, :a20
+    params.permit(:id, :user_id, :a1, :a2, :a3, :a4, :a5, :a6, :a7)
+    # :a8, :a9, :a10, :a11, :a12, :a13, :a14, :a15, :a16, :a17, :a18, :a19, :a20
   end
 end

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  # deviseを使用するときに呼び出す
+  # ログインしていないユーザーはログインページへ遷移。deviseを使用するときは許可されたparamsのみ受け取る。
+  before_action :authenticate_user!,except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
   
   # CSRF(クロスサイトリクエストフォージェリ)対策
   protect_from_forgery with: :exception

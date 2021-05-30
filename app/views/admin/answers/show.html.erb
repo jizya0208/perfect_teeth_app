@@ -1,23 +1,37 @@
 <div class="col-md-6 offset-md-2">
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th>項目</th>
-        <th>今回の回答</th>
-        <th>前回の回答</th>
-      </tr>
+<h5>回答詳細</h5>
+  <table class="table">
+    <thead class="thead-light">
+      <tr><th>項目</th><th>回答</th><th> 以前の回答</th><th></th></tr>
     </thead>
   
     <tbody>
+      <tr>
+        <td>回答日</td>
+        <td><%= @answer.created_at.strftime('%Y/%m/%d') %></td>
+        <td>
+          <% if @pre_answer %>
+            <%= @pre_answer.created_at.strftime('%Y/%m/%d') %>
+          <% end %>
+        </td>
+      </tr>
+      
       <% @questions.zip(@answer_keys).each do |question, answer_key| %>
       <tr>
         <td><%= question %></td>
-        <td>
+        <td class="rm_number">
           <%= @answer.send(answer_key) %>
         </td>
-        <td>
+        <td class="rm_number">
         <% if @pre_answer %>
           <%= @pre_answer.send(answer_key) %>
+        <td>
+          <% if @answer.send(answer_key).delete("^0-9").to_i < @pre_answer.send(answer_key).delete("^0-9").to_i %>
+            <span>!!</span>
+          <% elsif @answer.send(answer_key).delete("^0-9").to_i > @pre_answer.send(answer_key).delete("^0-9").to_i %>
+            <span>gud</span>
+          <% end %>
+        </td>
         <% end %>
         </td>
       </tr>

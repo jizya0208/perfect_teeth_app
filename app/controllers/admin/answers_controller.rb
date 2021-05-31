@@ -22,7 +22,8 @@ class Admin::AnswersController < ApplicationController
   def destroy
     answer = Answer.find_by(id: params[:id])
     answer.destroy
-    redirect_to admin_user_path(answer.user_id), notice: "削除に成功しました"
+    redirect_to admin_user_path(answer.user_id)
+    flash[:success] = "1件削除しました。"
   end
   
   private

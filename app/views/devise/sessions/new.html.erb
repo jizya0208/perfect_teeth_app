@@ -2,6 +2,10 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-6 bg-light">
       <h4 class="my-3">こちらは増田歯科のWEB問診ページです</h4>
+      
+      <% if flash[:notice] %>
+        <p class="alert alert-warning h4 mt-2"><%= flash[:notice] %></p>
+      <% end %>
      
 
       <%= form_with model:@user, url: new_user_session_path, local:true do |f| %>
@@ -12,15 +16,8 @@
         
         <div class="form-group">
           <label for="password">生年月日 (例:1990年5月10日生まれ ➡︎ 19900510 )</label>
-          <%= f.password_field :password, id:"password", class:"form-control", autocomplete: "current-password" %>
+          <%= f.password_field :password, id:"password", class:"form-control", autocomplete: "current-password", placeholder: "19900510" %>
         </div>
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %> 
-          </div>
-        <% end %>
-
         
         <div class="btn submit">
           <%= f.submit '次へ', class:"btn btn-sm btn-primary"%>
@@ -30,4 +27,11 @@
     </div>
   </div>
 </div>
-
+    
+        <!--ログイン情報を記憶する場合-->
+        <!--if devise_mapping.rememberable?-->
+        <!--  <div class="field">-->
+        <!--    f.check_box :remember_me-->
+        <!--    f.label :remember_me-->
+        <!--  </div>-->
+        <!--end -->

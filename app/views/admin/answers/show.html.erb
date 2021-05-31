@@ -1,18 +1,26 @@
 <div class="col-md-6 offset-md-2">
 <h5>回答詳細</h5>
+
+<%= link_to admin_user_path(@user) do %>
+  <h6>患者ID：<span><%= @user.id %></span></h6>
+  <h6>氏　名：<span><%= @user.last_name + " " + @user.first_name %></span></h6>
+<% end %>
+
   <table class="table">
     <thead class="thead-light">
-      <tr><th>項目</th><th>回答</th><th> 以前の回答</th><th></th></tr>
+      <tr><th>項目</th><th>&nbsp&nbsp回答</th><th>&nbsp&nbsp以前の回答</th><th></th></tr>
     </thead>
   
     <tbody>
       <tr>
         <td>回答日</td>
-        <td><%= @answer.created_at.strftime('%Y/%m/%d') %></td>
+        <td>&nbsp&nbsp
+          <%= @answer.created_at.strftime('%Y/%m/%d') %>
+        </td>
         <td>
-          <% if @pre_answer %>
-            <%= @pre_answer.created_at.strftime('%Y/%m/%d') %>
-          <% end %>
+        <% if @pre_answer %>&nbsp&nbsp
+          <%= @pre_answer.created_at.strftime('%Y/%m/%d') %>
+        <% end %>
         </td>
       </tr>
       

@@ -1,3 +1,31 @@
-<%= @user.answers.each do |answer| %>
+<div class="col-md-5 offset-md-2">
 
+<% if flash[:notice] %>
+  <p class="alert alert-warning h4 mt-2"><%= flash[:notice] %></p>
 <% end %>
+
+<h5>患者詳細</h5>
+  <h6>患者ID：<span><%= @user.id %></span></h6>
+  <h6>氏　名：<span><%= @user.last_name + " " + @user.first_name %></span></h6>
+  <table class="table">
+    <thead class="thead-light">
+      <tr><th></th><th>回答日時</th><th class="w-5"></th></tr>
+    </thead>
+  
+    <tbody>
+      <% @user.answers.order(id: :desc).each.with_index(1) do |answer, i| %>
+      <tr>
+        <td><%= i %></td>
+        <td>
+          <%= link_to user_admin_answer_path(answer.user_id, answer) do %>
+            <%= answer.created_at.strftime('%Y/%m/%d  %H:%M') %>
+          <% end %>  
+        </td>
+        <td>
+          <%= link_to '削除', user_admin_answer_path(answer.user_id, answer), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-sm" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div> 

@@ -1,7 +1,6 @@
 class Admin::UsersController < ApplicationController
   def index
-    # @users = User.all
-    @users = User.includes(:answer)
+    @users = User.all.order(id: :desc)
   end
 
   def show

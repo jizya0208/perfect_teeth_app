@@ -8,15 +8,18 @@
 	box-sizing: border-box;
 }
 
+a {
+	color: black;
+}
 header, nav, h4, .main-visual, footer {
   font-family:  'arial narrow', 'Sawarabi Mincho', "Segoe Print", sans-serif;
 }
 
-h5, .question .target {
+h4, h5, h6, .question .target {
 	color: #003864;
 }
 
-.question {
+h5, .question {
 	padding-top: 15px;
 }
 
@@ -27,6 +30,10 @@ h5, .question .target {
 
 .navbar {
 	background: #cbbda8;
+}
+
+li > a{
+	color: #ffffff;
 }
 
 .bg-color {
@@ -49,6 +56,22 @@ h5, .question .target {
 .rm_number:first-letter {
   visibility:hidden;
 }
+
+ h5:after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 32px;
+    margin: 5px 0 30px 25px;
+    background-color: #9a8d79;
+ }
+
+ 
+ td>.btn {
+ 	color: #ffffff;
+ 	background-color: #396292;
+ }
+
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 // @media screen and (max-width:425px) {

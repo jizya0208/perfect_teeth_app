@@ -9,13 +9,19 @@ class Admin::AnswersController < ApplicationController
     @answers = Answer.includes(:user).order(created_at: :desc)
     @answer = @answers.find_by(id: params[:id])
     latest_answer_id = params[:id].to_i
-    user = User.find_by("id = ?", @answer.user_id)
-    @pre_answer = user.answers.where("id < ?", latest_answer_id).last
+    @user = User.find_by("id = ?", @answer.user_id)
+    @pre_answer = @user.answers.where("id < ?", latest_answer_id).last
 
     # 質問項目の要約文を配列へ格納
     @questions = ['favorite BUMP', '口内炎', '下痢', '歯茎の出血', '気分', '胃もたれ', '尿頻度']
     #  answersテーブルのカラム名を配列へ格納
     @answer_keys = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7']
+  end
+  
+  def destroy
+    answer = Answer.find_by(id: params[:id])
+    answer.destroy
+    redirect_to admin_user_path(answer.user_id), notice: "削除に成功しました"
   end
   
   

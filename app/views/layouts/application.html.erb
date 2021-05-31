@@ -24,14 +24,18 @@
           <ul class="nav navbar navbar-right">
             <li class="navbar-text">増田歯科・矯正歯科</li>
             <% if user_signed_in? %>
-            <li>
+            <li class="pl-3">
               <%= link_to "終了", destroy_user_session_path, method: :delete %>
             </li>
+              <% if current_user.admin? %>
+                <li class="pl-3"><%= link_to "回答一覧", admin_answers_path %></li>
+                <li class="pl-3"><%= link_to "患者一覧", admin_users_path %></li>
+              <% end %>
             <% else %>
-            <li>
+            <li class="pl-3">
               <%= link_to "新規登録", new_user_registration_path %>
             </li>
-            <li>
+            <li class="pl-3">
               <%= link_to "ログイン", new_user_session_path %>
             </li>
             <% end %>

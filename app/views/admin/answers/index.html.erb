@@ -5,8 +5,8 @@
       <tr>
         <th>患者ID</th>
         <th>氏名</th>
-        <th></th>
         <th>回答日時</th>
+        <th></th>
       </tr>
     </thead>
   
@@ -14,12 +14,14 @@
       <% @answers.each do |answer| %>
       <tr>
         <td><%= answer.user_id %></td>
-        <td style="width:15%"><%= answer.user.last_name %></td>
-        <td style="width:15%"><%= answer.user.first_name %></td>
+        <td><%= link_to (answer.user.last_name + "　" + answer.user.first_name), admin_user_path(answer.user_id) %></td>
         <td>
           <%= link_to user_admin_answer_path(answer.user_id, answer) do %>
             <%= answer.created_at.strftime('%Y/%m/%d  %H:%M') %>
           <% end %>
+        </td>
+        <td>
+          <%= link_to '削除', user_admin_answer_path(answer.user_id, answer), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-sm" %>
         </td>
       </tr>
       <%  end %>

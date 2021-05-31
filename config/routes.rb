@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
   resources :users, only: [] do   
-    resources :answers, only: [:new, :create, :show]
+    resources :answers, only: [:new, :create]
     namespace :admin do
-      resources :answers, only: [:show, :edit, :update, :destroy]
-      resources :users, only: [:show]
+      resources :answers, only: [:show, :destroy]
     end
   end
   
-  resources :answers, only: [:index]
+  resource :answers, only: [:show]
   namespace :admin do
     resources :answers, only: [:index]
-    resources :users, only: [:index]
+    resources :users, only: [:index, :show]
   end
   
   devise_for :users

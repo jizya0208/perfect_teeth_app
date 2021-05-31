@@ -24,7 +24,8 @@
           <%= link_to '削除', user_admin_answer_path(answer.user_id, answer), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-sm" %>
         </td>
       </tr>
-      <%  end %>
+      <% end %>
     </tbody>
   </table>
+  <%= paginate @answers %>
 </div> 

@@ -16,11 +16,11 @@
 
       <%= form_with(model:[@user, @answer], local: true) do |f| %>
         <div class="question">
-          Q1.BUMP OF CHICKENで一番好きな曲は？
+          Q1.目がよく疲れる
         </div>
-          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q1"><%= f.radio_button :a1, "1 記念撮影", name:"a1" %>記念撮影</label>
-          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q1"><%= f.radio_button :a1, "2 ひとりごと", name:"a1" %>ひとりごと</label>
-          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-2 bg-color q1"><%= f.radio_button :a1, "3 beautifulglider", name:"a1" %>beautiful glider</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q1"><%= f.radio_button :a1, "1 はい", name:"a1" %>はい</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-3 bg-color q1"><%= f.radio_button :a1, "2 時々", name:"a1" %>時々</label>
+          <label class="target col-md-5 d-block border border-secondary rounded-pill mb-2 bg-color q1"><%= f.radio_button :a1, "3 ", name:"a1" %>いいえ</label>
 
         <div class="question">
           Q2.口内炎ができる

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   resources :users, only: [] do   
     resources :answers, only: [:new, :create]
     namespace :admin do
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
     resources :answers, only: [:index]
     resources :users, only: [:index, :show]
   end
+  
+  post 'answers' => 'answers#show'
   
   devise_for :users
   

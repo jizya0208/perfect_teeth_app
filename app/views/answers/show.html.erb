@@ -1,6 +1,12 @@
 <div class="col-md-6 offset-md-2">
   <p class="alert alert-success h4 mt-2">
-    <%= flash[:notice] %>
+    <%= flash[:success] %>
   </p>
 </div>
+
+
+<table>
+  <tr onclick='window.location="<%= '/contacts/' + contact.id.to_s %>"' role="link" class="contact-page">
+</table>
+  
 

@@ -13,8 +13,6 @@
 
 	
 	// ==========================================================================
-// $('td:contains("gud")').parent("tr").css("background-color", "#FFDBC9");
-// $('td:contains("!!")').parent("tr").css("background-color", "#F4FF22");
 
 $(function() {
 	$(document).on('turbolinks:load', function() {

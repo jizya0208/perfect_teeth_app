@@ -9,14 +9,15 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.new(answer_params)
     @answer.user_id = current_user.id
     if @answer.save
-      redirect_to answers_path, notice: "回答が保存されました"
+      redirect_to answers_path
     else
       @user = User.find_by(id: params[:id])
-    render 'answers/new', user_id: params[:id]
+    render 'answers/new', user_id: @answer.user_id
     end
   end
   
   def show
+    flash[:success] = "回答が保存されました"
   end
   
   private

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :contacts
   resources :users, only: [] do   
     resources :answers, only: [:new, :create]
